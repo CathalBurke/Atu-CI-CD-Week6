@@ -39,11 +39,17 @@ public class passengerController {
                 .created(URI.create("/api/passengers/" + created.getPassengerId()))
                 .body(created);
     }
-
+//Homework
     @PutMapping("/{id}")
     public ResponseEntity<passenger> update(@PathVariable String id, @RequestBody passenger p) {
         return service.update(id, p)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+//Homework
+@DeleteMapping("/{id}")
+public ResponseEntity<Void> delete(@PathVariable String id) {
+    boolean removed = service.delete(id);
+    return removed ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+}
 }
