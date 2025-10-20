@@ -32,4 +32,12 @@ public class passengerService {
         return p;
     }
 
+    public Optional<passenger> update(String id, passenger update) {
+        return findById(id).map(existing -> {
+            existing.setName(update.getName());
+            existing.setEmail(update.getEmail());
+            return existing;
+        });
+    }
+
 }
