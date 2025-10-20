@@ -31,7 +31,7 @@ public class passengerService {
         store.add(p);
         return p;
     }
-
+//Homework
     public Optional<passenger> update(String id, passenger update) {
         return findById(id).map(existing -> {
             existing.setName(update.getName());
@@ -39,5 +39,8 @@ public class passengerService {
             return existing;
         });
     }
-
+//Homework
+    public boolean delete(String id) {
+        return findById(id).map(p -> store.remove(p)).orElse(false);
+    }
 }
