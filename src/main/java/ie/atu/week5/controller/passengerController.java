@@ -47,9 +47,9 @@ public class passengerController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 //Homework
-@DeleteMapping("/{id}")
-public ResponseEntity<Void> delete(@PathVariable String id) {
-    boolean removed = service.delete(id);
-    return removed ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
-}
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        boolean removed = service.delete(id);
+        return removed ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    }
 }
