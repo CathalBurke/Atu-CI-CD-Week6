@@ -41,7 +41,7 @@ public class passengerController {
     }
 //Homework
     @PutMapping("/{id}")
-    public ResponseEntity<passenger> update(@PathVariable String id, @RequestBody passenger p) {
+    public ResponseEntity<passenger> update(@PathVariable String id, @Valid @RequestBody passenger p) {
         return service.update(id, p)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
